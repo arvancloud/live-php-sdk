@@ -1,0 +1,44 @@
+{
+    "name": "arvan/live-php-sdk",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "keywords": ["arvancloud","live","sdk"],
+    "description": "A simple wrapper on live REST APIs",
+    "authors": [
+        {
+            "name": "Arvan Cloud Web Services",
+            "homepage": "https://arvancloud.com"
+        },
+        {
+            "name": "Majid Esmailbeigi",
+            "email": "majid@arvancloud.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "guzzlehttp/guzzle": "^6.5",
+        "ext-json": "*",
+        "vlucas/phpdotenv": "^4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    },
+    "autoload": {
+        "psr-4": {
+            "AR\\LiveSdk\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\":"tests/"
+        }
+    },
+    "scripts": {
+        "unit": "phpunit --testsuite unit",
+        "integration": "phpunit --testsuite integration",
+        "tests": "phpunit --coverage-html tests/report/"
+    }
+}
