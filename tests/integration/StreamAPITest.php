@@ -5,6 +5,7 @@ namespace Test\integration;
 
 use AR\LiveSdk\Client;
 use AR\LiveSdk\Exceptions\ApiFailedException;
+use AR\LiveSdk\Exceptions\JsonDecodeException;
 use Test\TestCase;
 
 class StreamAPITest extends TestCase
@@ -28,6 +29,7 @@ class StreamAPITest extends TestCase
 
     /**
      * @throws ApiFailedException
+     * @throws JsonDecodeException
      */
     public function testStoreANewlyCreatedStream()
     {
@@ -55,6 +57,7 @@ class StreamAPITest extends TestCase
     /**
      * @return array
      * @throws ApiFailedException
+     * @throws JsonDecodeException
      */
     public function testReturnAllStreams()
     {
@@ -70,6 +73,7 @@ class StreamAPITest extends TestCase
      * @depends testReturnAllStreams
      * @param array $result
      * @throws ApiFailedException
+     * @throws JsonDecodeException
      */
     public function testUpdateTheSpecifiedStream(array $result)
     {
@@ -96,6 +100,7 @@ class StreamAPITest extends TestCase
      * @depends testReturnAllStreams
      * @param array $result
      * @throws ApiFailedException
+     * @throws JsonDecodeException
      */
     public function testReturnTheSpecifiedStream(array $result)
     {
@@ -109,6 +114,7 @@ class StreamAPITest extends TestCase
      * @depends testReturnAllStreams
      * @param array $result
      * @throws ApiFailedException
+     * @throws JsonDecodeException
      */
     public function testRemoveTheSpecifiedStream(array $result)
     {

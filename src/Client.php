@@ -15,7 +15,8 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
 
 /**
- * Class Client
+ * A simple SDK on live APIs
+ * @author majid@arvancloud.com
  * @package AR\LiveSdk
  * @method DomainApi domainApi()
  * @method StreamApi streamApi()

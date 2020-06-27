@@ -5,8 +5,9 @@ namespace Test\integration;
 
 use AR\LiveSdk\Client;
 use AR\LiveSdk\Exceptions\ApiFailedException;
-use Test\TestCase;
+use AR\LiveSdk\Exceptions\JsonDecodeException;
 use Psr\Http\Message\ResponseInterface;
+use Test\TestCase;
 
 class ReportAPITest extends TestCase
 {
@@ -23,6 +24,7 @@ class ReportAPITest extends TestCase
 
     /**
      * @throws ApiFailedException
+     * @throws JsonDecodeException
      */
     public function testReturnDomainStatisticsReport()
     {
@@ -34,6 +36,7 @@ class ReportAPITest extends TestCase
 
     /**
      * @throws ApiFailedException
+     * @throws JsonDecodeException
      */
     public function testReturnDomainTraffic()
     {
@@ -45,6 +48,7 @@ class ReportAPITest extends TestCase
 
     /**
      * @throws ApiFailedException
+     * @throws JsonDecodeException
      */
     public function testReturnUserAgent()
     {
@@ -56,6 +60,7 @@ class ReportAPITest extends TestCase
 
     /**
      * @throws ApiFailedException
+     * @throws JsonDecodeException
      */
     public function testReturnUserVisitors()
     {
@@ -65,6 +70,9 @@ class ReportAPITest extends TestCase
         $this->assertArrayHasKey('result', $result);
     }
 
+    /**
+     * @throws ApiFailedException
+     */
     public function testGetResponseContract()
     {
         $api = $this->client->reportApi();
@@ -73,6 +81,9 @@ class ReportAPITest extends TestCase
         $this->assertInstanceOf(ResponseInterface::class, $result);
     }
 
+    /**
+     * @throws ApiFailedException
+     */
     public function testGetSpecificHeaderName()
     {
         $api = $this->client->reportApi();
@@ -80,6 +91,9 @@ class ReportAPITest extends TestCase
         $this->assertIsArray($res->getHeader('Content-Type'));
     }
 
+    /**
+     * @throws ApiFailedException
+     */
     public function testGetResponseAsJsonString()
     {
         $api = $this->client->reportApi();
